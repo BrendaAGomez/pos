@@ -5,6 +5,8 @@ using namespace std;
 
 const int MAX_PRODUCTOS = 100;
 const float IVA = 0.21f;
+const float IIBB = 0.03f;
+
 
 struct Producto {
     int codigo;
@@ -54,12 +56,15 @@ int main() {
                subtotal);
     }
 
+    float iiibb = total * IIBB;
+    float totalConIibb = total + iiibb;
     float iva = total * IVA;
-    float totalConIva = total + iva;
+    float totalfinal = total + iva + iiibb;
 
     printf("\nSubtotal: %.2f\n", total);
+    printf("\ningresos brutos: %.2f\n", iiibb);
     printf("IVA 21%% : %.2f\n", iva);
-    printf("TOTAL   : %.2f\n", totalConIva);
+    printf("TOTAL   : %.2f\n", totalfinal);
 
     return 0;
 }
